@@ -1,18 +1,3 @@
-"""
-nodes.py
---------
-All LangGraph node functions used by the agent, plus the FAISS retriever
-builders for the two knowledge PDFs (academics handbook + fee structure).
-
-This is a cleaned-up version of the original script:
-- fixed `HuggingfaceEmbeddings` -> `HuggingFaceEmbeddings`
-- fixed `graph.add_edge(...)` misuse -> proper `add_node` calls now live in agent.py
-- fixed the `retrived_context` / `retrieved_context` key mismatch
-- fixed the `NO RETRIEVAL NEEDED` vs `NO_RETRIEVAL_NEEDED` string mismatch
-- fixed `response_node` only returning a value from inside the `else` branch
-- retrievers are now built lazily, so the API can boot even before PDFs exist
-"""
-
 import os
 from dotenv import load_dotenv
 
