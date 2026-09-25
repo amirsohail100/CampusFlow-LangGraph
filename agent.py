@@ -1,14 +1,3 @@
-r"""
-agent.py
---------
-Wires the nodes from tools/nodes.py into a LangGraph StateGraph and
-compiles it into a runnable agent.
-
-    classifier --> academic_rag --\
-               \-> fee_rag --------> response --> END
-               \-> general --------/
-"""
-
 from langgraph.graph import StateGraph, START, END
 
 from state.StatePipeline import State
