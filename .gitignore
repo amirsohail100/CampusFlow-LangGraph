@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# FAISS index cache if you persist it later
+*.faiss
+*.pkl
+
+# Source PDFs (keep them local, don't commit college documents)
+data/*.pdf
