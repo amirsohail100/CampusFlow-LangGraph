@@ -1,0 +1,7 @@
+<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Campus Desk crest">
+  <circle cx="24" cy="24" r="23" fill="#16223A" stroke="#C9A227" stroke-width="1.5"/>
+  <path d="M24 12 L40 19 L24 26 L8 19 Z" fill="#F3ECDC"/>
+  <path d="M14 22 V29 C14 32 18 34 24 34 C30 34 34 32 34 29 V22" fill="none" stroke="#C9A227" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="40" y1="19" x2="40" y2="29" stroke="#C9A227" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="40" cy="30.5" r="1.6" fill="#C9A227"/>
+</svg>
