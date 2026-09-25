@@ -1,16 +1,3 @@
-"""
-main.py
--------
-FastAPI entrypoint for the College Assistant.
-
-- Serves the chatbot UI (static/index.html, style.css, script.js)
-- Exposes POST /api/chat which drives the LangGraph agent
-- Keeps a simple in-memory conversation store keyed by session_id
-
-Run with:
-    uvicorn main:app --reload
-"""
-
 import os
 import uuid
 from typing import Dict
