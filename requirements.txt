@@ -1,0 +1,14 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-dotenv>=1.0
+
+langgraph>=0.2
+langchain>=0.3
+langchain-community>=0.3
+langchain-groq>=0.2
+langchain-huggingface>=0.1
+langchain-text-splitters>=0.3
+
+sentence-transformers>=3.0
+faiss-cpu>=1.8
+pypdf>=4.3
