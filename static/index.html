@@ -7,32 +7,105 @@
   <link rel="icon" href="../assets/icon/logo.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
+  <!-- Ambient Floating Background Particles & Animations for Large Screens -->
+  <div class="ambient-background">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+    <div class="bg-grid"></div>
+
+    <!-- Side Animated Visual Widgets for Desktop Empty Space -->
+    <aside class="desktop-side desktop-side--left">
+      <div class="side-card side-card--glass">
+        <div class="side-card__icon">🎓</div>
+        <div class="side-card__info">
+          <h3>Campus Portal</h3>
+          <p>Instant Academic Help</p>
+        </div>
+      </div>
+      <div class="side-features">
+        <div class="feature-tag"><span class="dot"></span> Attendance Queries</div>
+        <div class="feature-tag"><span class="dot"></span> Exam Schedules</div>
+        <div class="feature-tag"><span class="dot"></span> Fee Statements</div>
+      </div>
+    </aside>
+
+    <aside class="desktop-side desktop-side--right">
+      <div class="side-card side-card--stat">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">AI Campus Assistant</div>
+      </div>
+      <div class="quick-hints">
+        <p class="quick-hints__title">💡 Quick Prompts</p>
+        <button class="hint-btn" onclick="quickFill('When is the next exam schedule?')">📅 Next Exam Dates</button>
+        <button class="hint-btn" onclick="quickFill('How do I pay my semester fees?')">💳 Fee Payment Info</button>
+        <button class="hint-btn" onclick="quickFill('What is the attendance criteria?')">📊 Attendance Policy</button>
+      </div>
+    </aside>
+  </div>
+
   <div class="desk">
     <header class="desk__header">
       <div class="desk__brand">
         <div class="desk__crest-wrapper">
-          <img src="/assets/icon/app.svg" alt="" class="desk__crest" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e4c158'><path d='M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z'/></svg>'" />
-          <span class="online-indicator" title="Online"></span>
+          <img src="/assets/icon/app.svg" alt="" class="desk__crest" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fbbf24'><path d='M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z'/></svg>'" />
+          <span class="online-indicator" title="Assistant Active"></span>
         </div>
         <div class="desk__brand-text">
           <h1>Campus Desk</h1>
-          <p class="desk__tagline"><span class="pulse-dot"></span>Academics &amp; fees, answered</p>
+          <p class="desk__tagline"><span class="pulse-dot"></span>AI Academic Companion</p>
         </div>
       </div>
 
+      <!-- Custom Interactive Dropdown Menu -->
       <div class="desk__programme">
-        <label for="programme-select" class="programme-label">Programme</label>
-        <div class="select-wrapper">
-          <select id="programme-select" aria-label="Select Programme">
-            <option value="BCA">BCA</option>
+        <span class="programme-label">Programme</span>
+        <div class="custom-dropdown" id="custom-dropdown">
+          <button type="button" class="dropdown-trigger" id="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-text" id="selected-programme-text">BCA</span>
+            <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          
+          <div class="dropdown-menu" id="dropdown-menu" role="listbox">
+            <div class="dropdown-option selected" data-value="BCA" role="option">
+              <div class="option-icon">💻</div>
+              <div class="option-content">
+                <span class="option-title">BCA</span>
+                <span class="option-desc">Bachelor of Computer Applications</span>
+              </div>
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            
+            <div class="dropdown-option" data-value="BBA" role="option">
+              <div class="option-icon">💼</div>
+              <div class="option-content">
+                <span class="option-title">BBA</span>
+                <span class="option-desc">Bachelor of Business Admin</span>
+              </div>
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            
+            <div class="dropdown-option" data-value="BCOM_H" role="option">
+              <div class="option-icon">📈</div>
+              <div class="option-content">
+                <span class="option-title">B.Com (H)</span>
+                <span class="option-desc">B.Com Honours Degree</span>
+              </div>
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+          </div>
+          <!-- Hidden real select to maintain backward JS compatibility -->
+          <select id="programme-select" hidden>
+            <option value="BCA" selected>BCA</option>
             <option value="BBA">BBA</option>
             <option value="BCOM_H">B.Com (H)</option>
           </select>
-          <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </div>
       </div>
     </header>
@@ -43,9 +116,9 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM4 11a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6z"/><circle cx="9" cy="14" r="1"/><circle cx="15" cy="14" r="1"/></svg>
         </div>
         <div class="msg__content">
-          <div class="msg__author">Campus Assistant</div>
+          <div class="msg__author">Campus AI Assistant</div>
           <div class="msg__card">
-            Hi! I'm your college assistant. Ask me about attendance, exams, fees, refunds — or anything else on your mind.
+            Welcome to Campus Desk! 🎓 I'm here to assist you with attendance, exams, course syllabus, fees, or refunds. How can I help you today?
           </div>
         </div>
       </div>
@@ -59,16 +132,19 @@
         <div class="typing__dots">
           <span></span><span></span><span></span>
         </div>
-        <span class="typing__text">Assistant is typing...</span>
+        <span class="typing__text">Assistant is formulating response...</span>
       </div>
     </div>
 
     <form id="chat-form" class="composer">
       <div class="composer__input-container">
+        <div class="composer__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </div>
         <input
           id="chat-input"
           type="text"
-          placeholder="Ask about attendance, fees, exams…"
+          placeholder="Type your question here (e.g., fee structure)..."
           autocomplete="off"
           maxlength="500"
         />
