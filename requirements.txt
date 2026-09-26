@@ -1,6 +1,7 @@
 fastapi>=0.115
 uvicorn[standard]>=0.30
 python-dotenv>=1.0
+slowapi>=0.1.9
 
 langgraph>=0.2
 langchain>=0.3
