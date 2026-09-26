@@ -3,10 +3,17 @@ const chatForm = document.getElementById("chat-form");
 const chatInput = document.getElementById("chat-input");
 const sendBtn = document.getElementById("send-btn");
 const typingIndicator = document.getElementById("typing-indicator");
+
+// Custom Dropdown Elements
+const customDropdown = document.getElementById("custom-dropdown");
+const dropdownTrigger = document.getElementById("dropdown-trigger");
+const dropdownMenu = document.getElementById("dropdown-menu");
+const selectedProgrammeText = document.getElementById("selected-programme-text");
 const programmeSelect = document.getElementById("programme-select");
 
 const SESSION_KEY = "campus-desk-session-id";
 
+// Initialize Session ID
 function getSessionId() {
   let id = localStorage.getItem(SESSION_KEY);
   if (!id) {
@@ -14,6 +21,50 @@ function getSessionId() {
     localStorage.setItem(SESSION_KEY, id);
   }
   return id;
+}
+
+// Custom Dropdown Interactive Logic
+dropdownTrigger.addEventListener("click", (e) => {
+  e.stopPropagation();
+  const isActive = customDropdown.classList.contains("active");
+  customDropdown.classList.toggle("active", !isActive);
+  dropdownTrigger.setAttribute("aria-expanded", !isActive);
+});
+
+// Select Option from Custom Dropdown
+document.querySelectorAll(".dropdown-option").forEach((option) => {
+  option.addEventListener("click", () => {
+    const val = option.getAttribute("data-value");
+    const title = option.querySelector(".option-title").textContent;
+
+    // Update Hidden Select
+    programmeSelect.value = val;
+
+    // Update UI Text
+    selectedProgrammeText.textContent = title;
+
+    // Active state toggling
+    document.querySelectorAll(".dropdown-option").forEach((opt) => opt.classList.remove("selected"));
+    option.classList.add("selected");
+
+    // Close Dropdown
+    customDropdown.classList.remove("active");
+    dropdownTrigger.setAttribute("aria-expanded", "false");
+  });
+});
+
+// Close Dropdown when clicking outside
+document.addEventListener("click", () => {
+  if (customDropdown.classList.contains("active")) {
+    customDropdown.classList.remove("active");
+    dropdownTrigger.setAttribute("aria-expanded", "false");
+  }
+});
+
+// Quick Fill Function for Desktop Side Hints
+function quickFill(text) {
+  chatInput.value = text;
+  chatInput.focus();
 }
 
 function createBotAvatarSVG() {
@@ -37,7 +88,7 @@ function addMessage(text, role) {
 
   const author = document.createElement("div");
   author.className = "msg__author";
-  author.textContent = role === "user" ? "You" : role === "error" ? "System Alert" : "Campus Assistant";
+  author.textContent = role === "user" ? "You" : role === "error" ? "System Alert" : "Campus AI Assistant";
 
   const card = document.createElement("div");
   card.className = "msg__card";
@@ -51,7 +102,7 @@ function addMessage(text, role) {
 
   chatLog.appendChild(wrapper);
   
-  // Smooth scroll to latest message
+  // Smooth scroll
   chatLog.scrollTo({
     top: chatLog.scrollHeight,
     behavior: 'smooth'
