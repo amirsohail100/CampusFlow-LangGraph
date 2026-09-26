@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Desk — College Assistant</title>
+  <link rel="icon" href="../assets/icon/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="desk">
+    <header class="desk__header">
+      <div class="desk__brand">
+        <div class="desk__crest-wrapper">
+          <img src="/assets/icon/app.svg" alt="" class="desk__crest" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e4c158'><path d='M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z'/></svg>'" />
+          <span class="online-indicator" title="Online"></span>
+        </div>
+        <div class="desk__brand-text">
+          <h1>Campus Desk</h1>
+          <p class="desk__tagline"><span class="pulse-dot"></span>Academics &amp; fees, answered</p>
+        </div>
+      </div>
+
+      <div class="desk__programme">
+        <label for="programme-select" class="programme-label">Programme</label>
+        <div class="select-wrapper">
+          <select id="programme-select" aria-label="Select Programme">
+            <option value="BCA">BCA</option>
+            <option value="BBA">BBA</option>
+            <option value="BCOM_H">B.Com (H)</option>
+          </select>
+          <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+      </div>
+    </header>
+
+    <main id="chat-log" class="chat-log" aria-live="polite">
+      <div class="msg msg--bot">
+        <div class="msg__avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM4 11a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6z"/><circle cx="9" cy="14" r="1"/><circle cx="15" cy="14" r="1"/></svg>
+        </div>
+        <div class="msg__content">
+          <div class="msg__author">Campus Assistant</div>
+          <div class="msg__card">
+            Hi! I'm your college assistant. Ask me about attendance, exams, fees, refunds — or anything else on your mind.
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="typing-indicator" class="typing" hidden>
+      <div class="typing__avatar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM4 11a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6z"/><circle cx="9" cy="14" r="1"/><circle cx="15" cy="14" r="1"/></svg>
+      </div>
+      <div class="typing__bubble">
+        <div class="typing__dots">
+          <span></span><span></span><span></span>
+        </div>
+        <span class="typing__text">Assistant is typing...</span>
+      </div>
+    </div>
+
+    <form id="chat-form" class="composer">
+      <div class="composer__input-container">
+        <input
+          id="chat-input"
+          type="text"
+          placeholder="Ask about attendance, fees, exams…"
+          autocomplete="off"
+          maxlength="500"
+        />
+        <button type="submit" id="send-btn" aria-label="Send Message">
+          <span>Send</span>
+          <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
